@@ -1,0 +1,43 @@
+.triangle-form {
+    position: absolute;
+    bottom: 30px;
+    left: 45px;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.triangle-text-input {
+    flex-grow: 1;
+    min-height: 20px;
+    width: 300px;
+    overflow: hidden;
+    resize:none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+.triangle-button {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 17px;
+    border-color: transparent transparent transparent #007BFF; /* Triangle pointing right*/
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.triangle-button:hover {
+    border-color: transparent transparent transparent #0056b3; /* Darker blue when hovering */
+}
+
+.triangle-text-input:focus + .triangle-button {
+    border-color: transparent transparent transparent #0056b3; /* Change triangle color when input is focused */
+}

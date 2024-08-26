@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../Documents/BedrockDemo"
+		},
+		{
+			"name": "bedrock-api-react",
+			"path": "../bedrock-api-react"
+		}
+	],
+	"settings": {}
+}

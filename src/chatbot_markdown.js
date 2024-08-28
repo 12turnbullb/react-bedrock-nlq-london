@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 import './Chatbot.css'; // Import the external CSS file
 import loadingGif from './loading-gif.gif';
 
@@ -8,6 +9,7 @@ const Chatbot = ({ generated_uuid }) => {
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false); // State to toggle chatbot visibility
   const [isLoading, setIsLoading] = useState(false); // State to handle loading
+  const [expandedIndexes, setExpandedIndexes] = useState([]); // Track expanded messages
   const chatHistoryRef = useRef(null); // Reference to the chat history container
 
   const handleSubmit = async (e) => {
@@ -44,9 +46,9 @@ const Chatbot = ({ generated_uuid }) => {
       setIsLoading(false);
     }
   };
-  
+
   const extractFilename = (url) => {
-  return url.substring(url.lastIndexOf('/') + 1);
+    return url.substring(url.lastIndexOf('/') + 1);
   };
 
   useEffect(() => {
@@ -55,6 +57,12 @@ const Chatbot = ({ generated_uuid }) => {
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [messages]);
+  
+  const toggleExpand = (index) => {
+    setExpandedIndexes((prev) => 
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    );
+  };
 
   return (
     <div>
@@ -81,10 +89,15 @@ const Chatbot = ({ generated_uuid }) => {
                         className="avatar"
                       />
                       <div className="text-bubble bot">
-                        {message.text}
+                        <ReactMarkdown>{message.text}</ReactMarkdown>
                         {message.sources.length > 0 && (
+                          <div>
+                          <button className="expand-button" onClick={() => toggleExpand(index)}>
+                            {expandedIndexes.includes(index) ? 'Hide Sources' : 'Show Sources'}
+                          </button>
+                          {expandedIndexes.includes(index) && (
                           <div className="sources">
-                         {message.sources.map((url, idx) => (
+                            {message.sources.map((url, idx) => (
                               <div key={idx} className="source-item">
                                 <span className="source-label">{`[${idx + 1}] `}</span>
                                 <a href={url} target="_blank" rel="noopener noreferrer" className="source-link">
@@ -92,6 +105,8 @@ const Chatbot = ({ generated_uuid }) => {
                                 </a>
                               </div>
                             ))}
+                            </div>
+                            )}
                           </div>
                         )}
                       </div>

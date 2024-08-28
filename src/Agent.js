@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import './Chatbot_Agent.css'; // Import the external CSS file
 import loadingGif from './loading-gif.gif';
 
@@ -44,13 +46,9 @@ const Agent = ({ generated_uuid }) => {
     } catch (error) {
       console.error('Error fetching bot response:', error);
     } finally {
-      // Re-enable input field and loading state
+      // Set loading to false when the API calls is finished 
       setIsLoading(false);
     }
-  };
-
-  const extractFilename = (url) => {
-    return url.substring(url.lastIndexOf('/') + 1);
   };
 
   useEffect(() => {
@@ -65,12 +63,16 @@ const Agent = ({ generated_uuid }) => {
       prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
     );
   };
-
+  
   return (
     <div>
+    <div className="button-group">
       <Link to="/">
-        <button>Back to Home</button>
+        <button className="styled-button">Back to Home</button>
       </Link>
+      <br />
+      <button className="styled-button" onClick={() => window.location.reload()}>Refresh</button>
+    </div>
 
       <div className="chatbot-overlay">
         {/* Title bar */}
@@ -90,7 +92,7 @@ const Agent = ({ generated_uuid }) => {
                       className="avatar"
                     />
                     <div className="text-bubble bot">
-                      {message.text}
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.text}</ReactMarkdown>
                       {message.sql && (
                         <div className="expandable-section">
                           <button className="expand-button" onClick={() => toggleExpand(index)}>

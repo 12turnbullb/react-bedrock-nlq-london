@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Chatbot from './chatbot_sources';
+import Chatbot from './chatbot_markdown';
 import { ResponseArrayProvider } from './ResponseArrayContext';
 import { PromptArrayProvider } from './PromptArrayContext';
 import BackgroundComponent from './BackgroundComponent';
@@ -37,9 +37,13 @@ const App = () => {
         <Routes>
         <Route path = "/" element={
             <div className="App" style={{ backgroundImage: backgroundImage}}>
-            <Link to="/nlq">
-                <button>Go to NLQ</button>
-            </Link>
+            <div className="button-group">
+              <Link to="/nlq">
+                <button className="styled-button">Go to NLQ</button>
+              </Link>
+              <br />
+              <button className="styled-button" onClick={() => window.location.reload()}>Refresh</button>
+            </div>
             <BackgroundComponent imageUrl={backgroundImage} />
             
                 <ResponseArrayProvider>

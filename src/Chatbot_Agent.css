@@ -234,3 +234,31 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+
+/* Style for markdown-generated tables */
+.markdown-content table {
+  width: 80%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.markdown-content th, .markdown-content td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.markdown-content th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.markdown-content td {
+  background-color: #f9f9f9;
+}
+
+.markdown-content tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

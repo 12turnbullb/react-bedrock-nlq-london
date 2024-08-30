@@ -92,7 +92,9 @@ const Agent = ({ generated_uuid }) => {
                       className="avatar"
                     />
                     <div className="text-bubble bot">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.text}</ReactMarkdown>
+                      <div className="markdown-content">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.text}</ReactMarkdown>
+                      </div>
                       {message.sql && (
                         <div className="expandable-section">
                           <button className="expand-button" onClick={() => toggleExpand(index)}>

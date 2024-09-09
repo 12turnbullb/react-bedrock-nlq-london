@@ -6,7 +6,7 @@ import { PromptArrayProvider } from './PromptArrayContext';
 import BackgroundComponent from './BackgroundComponent';
 import Agent from './Agent'
 import useLocalStorage from './useLocalStorage';
-import pltw from './customer_images/pltw.jpg';
+import pltw from './customer_images/update_pltw.png';
 
 const { v4: uuidv4 } = require('uuid');
 

@@ -1,8 +1,0 @@
-.footer-container {
-    position: absolute;
-    bottom: 0;
-    width: '30';
-    height: '30';
-    right: 210px;
-    z-index: 1000; /* High z-index to ensure component is on top */
-}

@@ -1,18 +1,19 @@
-/* Chatbot Modal Styles */
 .chatbot-overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
+  width: 100%; /* Full width of the right section */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between the chat history and form */
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Increase width */
-  height: 80%; /* Increase height */
+  overflow: hidden; /* Prevents overall overflow of the chatbot container */
+}
+
+.form-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center; /* Center horizontally */
 }
 
 /* Title Bar */
@@ -21,9 +22,21 @@
   color: white;
   padding: 10px;
   text-align: center;
-  font-size: 20px; /* Slightly larger font size */
+  font-size: 14px; /* Slightly larger font size */
   font-weight: bold;
   border-radius: 8px 8px 0 0;
+}
+
+.chatbot-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+.chatbot-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 /* Toggle Button */
@@ -49,6 +62,7 @@
 .chat-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   padding: 10px;
   overflow: hidden; /* Prevents the container from overflowing */
@@ -57,26 +71,36 @@
 /* Chat History */
 .chat-history {
   flex-grow: 1;
-  overflow-y: auto; /* Enable scrolling */
+  overflow-y: auto; /* Enable scrolling in chat history */
+  padding-right: 10px;
   margin-bottom: 10px;
-  padding-right: 10px; /* Optional: Adds padding for scrollbar visibility */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensure messages stretch across the width */
 }
 
+/* Message Container */
 .message {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align messages to the start */
   margin-bottom: 10px;
+  width: 100%; /* Ensure full width for alignment */
 }
 
+/* Bot Message */
 .bot-message {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start; /* Align bot messages to the start */
+  width: 100%; /* Ensure full width for alignment */
 }
 
+/* User Message */
 .user-message {
-  justify-content: flex-end;
   display: flex;
-  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-end; /* Align user messages to the end */
+  width: 100%; /* Ensure full width for alignment */
 }
 
 .avatar {
@@ -91,15 +115,16 @@
   background-color: #f1f1f1; /* Light background for the bot message */
   position: relative;
   max-width: 80%; /* Adjust as needed */
+  align-self: flex-start; /* Align text bubble to the start */
 }
 
-/* Text Bubble for User */
 .text-bubble.user {
   max-width: 70%;
   padding: 10px;
   border-radius: 15px;
-  background-color: #3399ff; /* Light cyan background for bot messages */
-  color: #FFFFFF; /* White text color */
+  background-color: #3399ff; /* Light cyan background for user messages */
+  color: #ffffff; /* White text color */
+  align-self: flex-end; /* Align text bubble to the end */
 }
 
 .sources {
@@ -131,9 +156,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 5px 0;
-  border-top: 1px solid #ddd; /* Optional: Adds a border to separate input bar from chat history */
+  padding: 10px;
+  border-top: 1px solid #ddd; /* Adds a border to separate input bar from chat history */
   background-color: white;
+  width: 100%; /* Full width of the chatbot overlay */
 }
 
 .input {
@@ -174,7 +200,7 @@
   align-items: center;
   border-radius: 5px;
   border: none;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   position: relative;
 }
 
@@ -235,7 +261,6 @@
   margin-top: 10px;
 }
 
-
 /* Style for markdown-generated tables */
 .markdown-content table {
   width: 80%;
@@ -244,7 +269,8 @@
   font-size: 14px;
 }
 
-.markdown-content th, .markdown-content td {
+.markdown-content th,
+.markdown-content td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -261,4 +287,49 @@
 
 .markdown-content tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  height: 90vh; /* Full viewport height */
+  width: 100%; /* Full width of the container */
+}
+
+.left-section {
+  width: 25%; /* Left side takes 25% of the width */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section {
+  width: 75%; /* Right side takes 75% of the width */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section {
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.about-header {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.about-dataset-list {
+  list-style-type: disc;
+  font-size: 14px;
+  margin-left: 10px;
 }

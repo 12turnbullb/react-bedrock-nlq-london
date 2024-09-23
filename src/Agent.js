@@ -177,6 +177,9 @@ const Agent = ({ generated_uuid }) => {
           </div>
         </div>
       </div>
+      <div className="arch-container">
+        <img src="./images/arch.png" alt="arch" className="arch-image" />
+      </div>
     </div>
   );
 };

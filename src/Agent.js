@@ -89,11 +89,11 @@ const Agent = ({ generated_uuid }) => {
               <li>
                 <strong>World Cup Matches Dataset:</strong> Contains detailed
                 match information including dates, venues, teams, scores, and
-                match events.
+                attendance.
               </li>
               <li>
-                <strong>Players Dataset:</strong> Includes performance metrics
-                for players such as goals, assists, and minutes played.
+                <strong>Players Dataset:</strong> Includes metrics
+                for players such as coach's name, player's name and which world cup match they played in.
               </li>
             </ul>
           </section>

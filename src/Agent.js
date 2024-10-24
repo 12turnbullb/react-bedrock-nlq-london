@@ -61,39 +61,35 @@ const Agent = ({ generated_uuid }) => {
 
   return (
     <div>
-      <header className="chatbot-header">
-        <h1>Generative AI Forum - London, UK</h1>
-      </header>
-
       <div className="container">
         <div className="left-section">
           <section className="about-section">
             <h1 className="about-header">About this Demo</h1>
             <p className="description">
               We use Amazon Bedrock to generate SQL queries from natural
-              language and return the results conversationally. You can ask
-              questions about FIFA world cups from 1930-2014. The structured
-              data in our sample ends at 2014.
+              language and return the results conversationally. This example
+              uses sample donor data to demonstrate NLQ for reporting.
             </p>
             <h2 className="about-header">Dataset Descriptions</h2>
-            <p className="description">
-              This application utilizes several datasets to provide insights and
-              statistics about the FIFA World Cup:
-            </p>
             <ul className="about-dataset-list">
               <li>
-                <strong>World Cup Dataset:</strong> Tracks the winners of each
-                tournament along with the host countries and final match
-                results.
+                <strong>Donors:</strong> Tracks general donor profile
+                information such as name, email and income.
               </li>
               <li>
-                <strong>World Cup Matches Dataset:</strong> Contains detailed
-                match information including dates, venues, teams, scores, and
-                attendance.
+                <strong>Donations:</strong> Contains detailed information on
+                donation transactions.
               </li>
               <li>
-                <strong>Players Dataset:</strong> Includes metrics
-                for players such as coach's name, player's name and which world cup match they played in.
+                <strong>Campaigns:</strong> Includes details on campaigns such
+                as name, start and end date, and goal amount.
+              </li>
+              <li>
+                <strong>Events:</strong> Includes details on hosted events that
+                align to a given campaign.
+              </li>
+              <li>
+                <strong>Registraton:</strong> Maps donors to event attendance.
               </li>
             </ul>
           </section>
@@ -110,7 +106,7 @@ const Agent = ({ generated_uuid }) => {
                     {message.sender === "bot" ? (
                       <div className="bot-message">
                         <img
-                          src="./images/ball-avatar.png"
+                          src="./images/ef_logo.png"
                           alt="Bot Avatar"
                           className="avatar"
                         />

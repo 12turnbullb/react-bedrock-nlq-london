@@ -61,6 +61,9 @@ const Agent = ({ generated_uuid }) => {
 
   return (
     <div>
+      <header className="chatbot-header">
+        <h1>Donor Analytics Chatbot Demo</h1>
+      </header>
       <div className="container">
         <div className="left-section">
           <section className="about-section">

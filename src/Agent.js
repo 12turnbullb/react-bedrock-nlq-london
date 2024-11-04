@@ -106,7 +106,7 @@ const Agent = ({ generated_uuid }) => {
                     {message.sender === "bot" ? (
                       <div className="bot-message">
                         <img
-                          src="./images/ef_logo.png"
+                          src="./images/chatbot_new.jpg"
                           alt="Bot Avatar"
                           className="avatar"
                         />
